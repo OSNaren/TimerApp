@@ -21,7 +21,9 @@ document.getElementById('successcloser').addEventListener('click', function (e) 
     $("#successalert").fadeOut(3000);
 });
 
-
+/**
+ * @desc To Activate Page Transition
+ */
 function pg_trans() {
     var layerClass = "." + 'top' + "-layer";
     var layers = document.querySelectorAll(layerClass);
@@ -32,6 +34,12 @@ function pg_trans() {
 
 var outer_container = document.getElementById("outer-container");
 
+
+/**
+ * @desc After Successful Validation
+ * @param user_name {String} User Name
+ * @param olnw {String} Login/Signup
+ */
 function proceed_user(user_name, olnw) {
     if (olnw === 'login') {
         stext.innerHTML = 'Welcome Back!';
@@ -59,6 +67,9 @@ document.getElementById('alertcloser').addEventListener('click', function (e) {
     $("#useralert").fadeOut(3000);
 });
 
+/**
+ * @desc If unsuccessful Validation
+ */
 
 function stop_user() {
     ualert.style.display = 'block';
@@ -66,6 +77,10 @@ function stop_user() {
         $("#useralert").fadeOut(3000);
     }, 5000);
 }
+
+/**
+ * @desc Handle Login Form Submission
+ */
 
 $("#login").submit(function (e) {
     var log_name = document.getElementById('log-name').value;
@@ -90,12 +105,24 @@ $("#login").submit(function (e) {
     return false;
 });
 
+/**
+ * To get the Users from DB
+ */
+
 var my_json;
-$.getJSON("js/users.json", function (data) {
-    my_json = data;
-});
+const remurl = '/json';
+const options = {method: 'GET'};
+fetch(remurl, options)
+    .then(async (res) => {
+        console.log(res);
+        res = (await res.text());
+        my_json = (res);
+    })
+    .catch((err) => console.error(err));
 
-
+/**
+ * @desc Handle Signup Form Submission
+ */
 $("#signup").submit(function (e) {
     var sign_name = document.getElementById('sign-name').value;
     var sign_pass = document.getElementById('sign-pass').value;
@@ -127,6 +154,10 @@ $("#signup").submit(function (e) {
 var signup_name = document.getElementById('sign-name')
 var signup_pass = document.getElementById('sign-pass');
 var signup_repass = document.getElementById('sign-repass');
+
+/**
+ * Event Listeners for Signup Page Elements
+ */
 
 signup_name.addEventListener('keyup', function (e) {
     $('#availusr').css("display", "initial");
@@ -163,9 +194,10 @@ signup_repass.addEventListener('keyup', function (e) {
     }
 });
 
+// To Focus Initial Input Box
 window.addEventListener('load', (event) => {
     console.log('page is fully loaded');
     setTimeout(function () {
         document.getElementById("log-name").focus();
-    }, 3500);
+    }, 4000);
 });

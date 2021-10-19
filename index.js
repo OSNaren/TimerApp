@@ -19,6 +19,19 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/public/index.html');
 });
 
+// Serve Users Json
+app.get('/json', function (req, res) {
+    fs.readFile('public/js/users.json', 'utf8', async function readFileCallback(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            var obj = JSON.parse(data);
+            res.send(obj);
+        }
+    });
+});
+
+// Handle User Login
 app.post('/login', function (req, res) {
     var user = req.body['user'];
     var pass = req.body['password'];
@@ -49,6 +62,7 @@ app.post('/login', function (req, res) {
     });
 });
 
+// Handle User Signup
 app.post('/signup', async function (req, res) {
     var user = req.body['user'];
     var pass = req.body['password'];

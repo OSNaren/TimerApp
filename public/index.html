@@ -24,6 +24,8 @@
 
 </head>
 <body onload="setTimeout(loader,3500)">
+
+<!--    Preloader Code  -->
 <div class="container-fluid h-100 w-100" id="preloader">
     <div class="position-absolute top-50 start-50 translate-middle" id="images">
         <video class="start_icon" preload loop muted autoplay>
@@ -35,7 +37,9 @@
     </div>
 </div>
 
+<!--    Main Code  -->
 <div class="container-fluid w-100" id="outer-container" style="display: none">
+    <!--    BG Animation Code  -->
     <div class="background-anim" id="color-bg">
         <div class="purple"></div>
         <div class="medium-blue"></div>
@@ -51,6 +55,7 @@
         <div class="pink"></div>
     </div>
 
+    <!--    Login & Signup Code  -->
     <div class="login-image top-20 start-50 translate-middle" id="login-image">
         <div class="container">
             <form class="signIn active-dx" id="login" action="http://localhost:6006/timer" method="post">
@@ -81,6 +86,7 @@
         </div>
     </div>
 
+    <!--    Page Transition Code  -->
     <div class="trans-container h-100 w-100">
         <div class="top-layer"></div>
         <div class="top-layer top-layer--2"></div>
@@ -90,6 +96,7 @@
     </div>
 </div>
 
+<!--    Alerts Code  -->
 <div class="alert alert-warning alert-dismissible fade in show" role="alert" style="display:none" id="useralert">
     <button type="button" class="btn-close" aria-label="Close" id="alertcloser"></button>
     <strong><img src="img/cool.gif" alt="Search" width="40px">Hey You!</strong>
