@@ -1,0 +1,111 @@
+@import url('login.css');
+
+* {
+    font-style: normal;
+    transition: all 0.3s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+#outer-container {
+    height: 100vh;
+    background: #24246e;
+    background: radial-gradient(circle, rgba(36, 36, 110, 0.751), rgba(28, 113, 175, 0.751));
+    animation: gradient 5s infinite ease-in-out;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.login-image {
+    top: 20vh;
+}
+
+.login_icon {
+    width: 80px;
+}
+
+#useralert, #successalert {
+    top: 0;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: left;
+    z-index: 50;
+    right: 0;
+    width: 20%;
+    margin: 0;
+}
+
+#useralert p, #successalert p {
+    font-size: 18px;
+    color: #664d03;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+#successalert p {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#successalert {
+    text-align: right;
+}
+
+#succ_span {
+    line-height: 20%;
+}
+
+#alert_uname {
+    display: initial;
+    font-size: 18px;
+    color: #664d03;
+    margin-bottom: 0;
+}
+
+/*  --- Page Transitions ---    */
+.top-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    bottom: auto;
+    right: auto;
+    background: #6c567b;
+    transition: all 1.5s cubic-bezier(0.6, 0.05, 0.4, 1);
+}
+
+.top-layer.active {
+    top: 100%;
+}
+
+.top-layer--2 {
+    background: #393e46;
+    transition-delay: 1s;
+}
+
+.top-layer--3 {
+    background: #6c5b7b;
+    transition-delay: 0.8s;
+}
+
+.top-layer--4 {
+    background: #c06c84;
+    transition-delay: 0.6s;
+}
+
+.top-layer--5 {
+    background: #f67280;
+    transition-delay: 0.4s;
+}
