@@ -42,5 +42,5 @@ _SDLC Assignment_  —  **A web app that allows the user to track time for their
 
 ### Links
 ---
-[![portfolio](https://img.shields.io/badge/my_portfolio-blue?style=for-the-badge&logo=ko-fi&logoColor=white)](https://osnaren.myportfolio.com/)  [![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OSNaren/WeatherApp)           [![bitbucket](https://img.shields.io/badge/Bitbucket-330F63?style=for-the-badge&logo=bitbucket&logoColor=white)](https://bitbucket.org/osnaren/osnaren_webtips_assignments) 
+[![portfolio](https://img.shields.io/badge/my_portfolio-blue?style=for-the-badge&logo=ko-fi&logoColor=white)](https://osnaren.myportfolio.com/)  [![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OSNaren/TimerApp)           [![bitbucket](https://img.shields.io/badge/Bitbucket-330F63?style=for-the-badge&logo=bitbucket&logoColor=white)](https://bitbucket.org/osnaren/osnaren_webtips_sdlc/) 
 
