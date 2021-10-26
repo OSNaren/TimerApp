@@ -1,12 +1,9 @@
-body:active div,
-body:active div::before,
-body:active div::after {
-    padding: 40px;
-}
 
-div,
-div::before,
-div::after {
+.background-anim,
+.background-anim::before,
+.background-anim::after,
+.background-anim div::before,
+.background-anim div::after {
     content: "";
     position: fixed;
     top: 0;

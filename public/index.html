@@ -22,6 +22,10 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
 
+    <!-- Font Awesome library -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
 <body onload="setTimeout(loader,3500)">
 
@@ -87,13 +91,297 @@
     </div>
 
     <!--    Page Transition Code  -->
-    <div class="trans-container h-100 w-100">
+    <div class="trans-container h-100 w-100" id="pg_trans">
         <div class="top-layer"></div>
         <div class="top-layer top-layer--2"></div>
         <div class="top-layer top-layer--3"></div>
         <div class="top-layer top-layer--4"></div>
         <div class="top-layer top-layer--5"></div>
     </div>
+    <div class="trans-container h-100 w-100" id="pg_trans_bot">
+        <div class="bottom-layer"></div>
+        <div class="bottom-layer bottom-layer--2"></div>
+        <div class="bottom-layer bottom-layer--3"></div>
+    </div>
+
+    <!--    Main Timer Page Code  -->
+    <div class="mytimer" id="mytimer" style="display: none">
+
+        <section class="menu menu--circle" id="menu__section">
+            <input type="checkbox" id="menu__active"/>
+            <label for="menu__active" class="menu__active">
+                <div class="menu__toggle" id="menu__toggle">
+                    <div class="icon">
+                        <div class="hamburger"></div>
+                    </div>
+                </div>
+                <input type="radio" name="arrow--up" id="degree--up-0"/>
+                <input type="radio" name="arrow--up" id="degree--down-0"/>
+                <div class="menu__listings" id="menu__listings">
+                    <ul class="circle">
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button"><i class="fa"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button"><img class="img_child2" src="img/user.gif" width="50 px"/></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a>&nbsp</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside" id="export-btn">
+                                    <a class="button"><img class="img_child4"
+                                                           src="https://img.icons8.com/color/48/000000/export-csv.png"/></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button"><i class="fa"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button" id="export-btn2"><img class="img_child6" src="img/import.gif"
+                                                                            width="50 px"/></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button" id="import-btn"><img class="img_child7"
+                                                                           src="https://img.icons8.com/color/48/000000/import-csv.png"/></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button"></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a class="button" id="import-btn2"><img class="img_child9" src="img/import.gif"
+                                                                            width="50 px"/></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="placeholder">
+                                <div class="upside">
+                                    <a id="logout_btn" class="button"><img class="img_child10" src="img/logout.gif"
+                                                                           width="50 px"/></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu__arrow menu__arrow--top" id="m_arr_up">
+                    <ul>
+                        <li>
+                            <label for="degree--up-0">
+                                <div class="arrow"></div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu__arrow menu__arrow--bottom" id="m_arr_down">
+                    <ul>
+                        <li>
+                            <label for="degree--down-0">
+                                <div class="arrow"></div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </label>
+        </section>
+
+        <div class="container timer_outer">
+            <div class="row timer_main">
+                <div class="col-4 create_new">
+                    <img data-bs-toggle="modal" data-bs-target="#exampleModal" src="img/create.gif" class="create_img"
+                         id="create-img"
+                         alt="Create New Task" width="120 px">
+                    <h2 data-splitting class="" id="createh2">Create</h2>
+                    <img width="30px" class="plus_img"
+                         src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-new-sales-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"/>
+                </div>
+                <div class="row m-3 running_task" id="running_task">
+                    <div class="col-7 runt_name">
+                        <h3 id="runt_nameH">Task - X</h3>
+                        <div class="col-8 runt_desc">
+                            <p id="runt_descH">Description X</p>
+                        </div>
+                    </div>
+                    <div class="col-5 runt_icon">
+                        <a title="Start/Stop Timer" class="play" id="play-btn" style="display: none"></a>
+                        <img src="https://img.icons8.com/flat-round/64/000000/stop.png" class="stop-btn"
+                             style="display: block"
+                             id="stop-btn">
+                        <div class="col-5 runt_time">
+                            <h4 id="runt_timeH">00: 00: 00</h4>
+                        </div>
+                    </div>
+                </div>
+                <div data-splitting class="col-1 logs_head" id="logs-name">
+                    <h2>Logs ⇨</h2>
+                </div>
+                <div class="row logs_outer" id="logs-outer">
+                    <video class="empty-icon" id="empty-icon" preload loop muted autoplay style="display: none">
+                        <source src="img/empty.webm" type="video/webm">
+                    </video>
+                    <div class="row m-3 my_timelog" id="log-temp" style="display: none">
+                        <div class="col tlog_name">
+                            <h4>Task - X</h4>
+                        </div>
+                        <div class="col pt-2 tlog_desc">
+                            <p>Description X</p>
+                        </div>
+                        <div class="col-sm-3 tlog_time">
+                            <h4 class="tlog_timeh5">00: 00: 15</h4>
+                        </div>
+                        <div class="col-sm-1 tlog_icons">
+                            <img class="tlog_edit" width="31px" height="31px" src="img/edit.png"/>
+                            <img class="tlog_play" width="35px" height="35px" src="img/play.png"/>
+                        </div>
+                    </div>
+                    <div class="row m-3 my_timelog" id="log1" style="display: flex;">
+                        <div class="col tlog_name">
+                            <h4>akjnfd</h4>
+                        </div>
+                        <div class="col pt-2 tlog_desc">
+                            <p>nalsfnaln</p>
+                        </div>
+                        <div class="col-sm-3 tlog_time">
+                            <h4 class="tlog_timeh5">00: 03: 58</h4>
+                        </div>
+                        <div class="col-sm-1 tlog_icons">
+                            <img class="tlog_edit" width="31px" height="31px" src="img/edit.png">
+                            <img class="tlog_play" width="35px" height="35px" src="img/play.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <input type="file" id="file-selector" multiple hidden>
+
+    <!--    New Modal Code  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New Task
+                        <img class="tlog_edit" width="35px" height="35px" src="img/create-new.gif"/></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="g-3 needs-validation" id="create_task_form" novalidate>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="createTaskName" placeholder="Task Name"
+                                   required autocomplete="off">
+                            <label for="createTaskName">Task Name</label>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="createTaskDesc"
+                                      style="height: 100px"></textarea>
+                            <label for="createTaskDesc">Task Description</label>
+                            <div class="valid-feedback">
+                                Sweet!
+                            </div>
+                        </div>
+                        <div class="form-floating create-btn">
+                            <button type="submit" class="btn btn-primary">Create !</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="createModalClose" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" data-bs-toggle="modal" href="#editModal" id="editModalbtn" role="button"
+            hidden></button>
+
+    <!--    Edit Modal Code  -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Task
+                        <img class="tlog_edit" width="35px" height="35px" src="img/edit.gif"/></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="g-3 needs-validation" id="edit_task_form" novalidate>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="editTaskName" placeholder="Task Name"
+                                   required autocomplete="off">
+                            <label for="createTaskName">Task Name</label>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="editTaskDesc"
+                                      style="height: 100px"></textarea>
+                            <label for="createTaskDesc">Task Description</label>
+                            <div class="valid-feedback">
+                                Sweet!
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="editTaskTime" placeholder="Task Name"
+                                   required autocomplete="off">
+                            <label for="createTaskName">Task Time</label>
+                            <div class="valid-feedback">
+                                Fine!
+                            </div>
+                        </div>
+                        <div class="form-floating edit-btn">
+                            <button type="submit" class="btn btn-primary">Update !</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="del-btn">Delete Log</button>
+                    <button type="button" id="editModalClose" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!--    Alerts Code  -->
@@ -124,4 +412,5 @@
 
 <!-- User JS -->
 <script src="js/script.js"></script>
+<script src="js/menu.js"></script>
 </html>
